@@ -18,7 +18,6 @@ import { RegisterComponent } from './register/register.component';
     SharedModule,
     ReactiveFormsModule
   ],
-  exports: [
-    AuthModalComponent]
+  exports: [AuthModalComponent]
 })
 export class UserModule { }
