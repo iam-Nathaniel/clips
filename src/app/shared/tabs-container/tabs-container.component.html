@@ -1,0 +1,15 @@
+<!-- Tabs -->
+<ul class="flex flex-wrap mb-4">
+<!-- the array of the tabs has been created via the queryList so the angular can now loop through the array of objects -->
+    <li *ngFor="let tab of tabs" class="flex-auto text-center">
+        <a class="block rounded py-3 px-4 transition hover:text-white text-white bg-indigo-400" href="#" 
+            [ngClass]="{
+                'hover: text-indigo-400': !tab.active, 
+                'hover:text-white text-white bg-indigo-400': tab.active}"
+                (click)="selectTab(tab, $event)" > {{tab.tabTitle}} </a>
+    </li>
+</ul>
+
+
+<!-- content projection for tab component -->
+<ng-content></ng-content> 

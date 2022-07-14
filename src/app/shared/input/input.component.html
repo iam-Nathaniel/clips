@@ -1,0 +1,27 @@
+<input [formControl]="control" type="text" 
+    class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+        duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+    placeholder="Enter Name" />
+
+<!-- {{ registerForm.get('name')?.errors | json }} testing the validators and error handling -->
+<!-- optionional chaining is used here because the object may contain a null value -->
+
+    <ng-container *ngIf="control.touched && control.dirty">
+
+        <p *ngIf="control.errors?.['required']" class="text-red-400">
+            Field is required
+        </p>
+
+        <p *ngIf="control.errors?.['minlength']" class="text-red-400">
+           
+            The value you inputted is
+            {{ control.errors?.['minlength']?.['actualLength'] }}
+            chararacters long.
+    
+            It must be at least
+            {{ control.errors?.['minlength']?.['requiredLength']}}
+            characters long.
+        </p>
+    </ng-container>
+
+    <!-- *ngIf="registerForm.controls['name']?.touched && registerForm.controls['name']?.dirty && registerForm.controls['name']?.errors?.['minlength']" -->
