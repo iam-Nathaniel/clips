@@ -1,5 +1,5 @@
 <!-- Registration Form -->
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="register()">
     <!-- Name -->
     <div class="mb-3">
         <label class="inline-block mb-2">Name</label>
@@ -28,10 +28,16 @@
     <!-- Phone Number -->
     <div class="mb-3">
         <label class="inline-block mb-2">Phone Number</label>
-        <app-input [control]="phoneNumber"  format="(000)-000-0000"  placeholder="Enter Phone Number"></app-input>
+        <app-input [control]="phoneNumber"  format="(000)000-0000"  placeholder="Enter Phone Number"></app-input>
     </div>
-    <button type="submit" class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition
-                    hover:bg-indigo-500">
+    <button type="submit" [disabled]="registerForm.invalid" class="block w-full bg-indigo-400 text-white py-1.5 px-3 rounded transition 
+        hover:bg-indigo-500 disabled:opacity-50 disabled:bg-indigo-400">
         Submit
     </button>
 </form>
+<!-- 
+disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none
+invalid:border-pink-500 invalid:text-pink-600
+focus:invalid:border-pink-500 focus:invalid:ring-pink-500
+
+disabled:opacity-50 disabled:bg-indigo-400 -->
