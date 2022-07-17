@@ -42,7 +42,7 @@ export class TabsContainerComponent implements AfterContentInit {
    //then the selected tab becomes the first item in the list of filtered tabs
 
    if (!activeTabs || activeTabs.length === 0) {
-     this.selectTab(this.tabs!.first, this.e);
+     this.selectTab(this.tabs!.first );
    }
  }
 
@@ -50,14 +50,16 @@ export class TabsContainerComponent implements AfterContentInit {
  //for each tab in the array initially set to false 
  //then set the selected tab to true
 
- selectTab(tab: TabComponent, e: Event){
+ selectTab(tab: TabComponent){
    this.tabs?.forEach((tab) => {
      tab.active = false;
    });
    tab.active = true;
 
-   //prevents the links from opening on a different page
-   e.preventDefault();
+  //prevents the links from opening on a different page
+  //  e.preventDefault();
+  return false;
+  
  }
 
 }
